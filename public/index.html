@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusPulse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>CampusPulse</h1>
+      <p>Mess menu, bus timetable, crowd guidance, and campus notices.</p>
+    </div>
+    <div class="today-box">
+      <span id="todayText">Today</span>
+      <strong id="clockText">--:--</strong>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero-panel">
+      <div>
+        <h2>Campus Service Guide</h2>
+        <p>Select mess or bus, check the original schedule/menu data, and get a simple crowd suggestion based on timing and student reports.</p>
+      </div>
+      <div class="mode-tabs">
+        <button id="messTab" class="active" type="button">Mess</button>
+        <button id="busTab" type="button">Bus</button>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h2 id="formTitle">Mess Crowd Guide</h2>
+
+        <form id="guideForm">
+          <label for="day">Day</label>
+          <select id="day" required></select>
+
+          <div id="messControls">
+            <label for="meal">Meal</label>
+            <select id="meal">
+              <option value="">Select meal</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Snacks">Snacks</option>
+              <option value="Dinner">Dinner</option>
+            </select>
+          </div>
+
+          <div id="busControls" class="hidden">
+            <label for="busSelect">Bus Timing</label>
+            <select id="busSelect"></select>
+          </div>
+
+          <button type="submit">Get Suggestion</button>
+        </form>
+
+        <div id="resultBox" class="result-box">
+          <p>Select a service to see guidance.</p>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2 id="dataTitle">Mess Menu</h2>
+            <p id="dataSubtitle">Original weekly mess menu data.</p>
+          </div>
+        </div>
+        <div id="dataView" class="data-view"></div>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h2>Submit Crowd Feedback</h2>
+        <form id="reportForm">
+          <label for="reportService">Service</label>
+          <select id="reportService">
+            <option value="mess">Mess</option>
+            <option value="bus">Bus</option>
+          </select>
+
+          <label for="reportTarget">Location / Bus</label>
+          <input id="reportTarget" type="text" value="mess" required>
+
+          <label for="reportLevel">Crowd Level</label>
+          <select id="reportLevel" required>
+            <option value="">Select level</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
+
+          <label for="reportNote">Note</label>
+          <input id="reportNote" type="text" placeholder="Example: Long queue near counter">
+
+          <button type="submit">Submit Feedback</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <h2>Recent Feedback</h2>
+        <div id="recentReports" class="list"></div>
+      </div>
+    </section>
+
+    <section class="grid-two">
+      <div class="panel">
+        <h2>Add Campus Notice</h2>
+        <form id="noticeForm">
+          <input type="hidden" id="noticeId">
+
+          <label for="title">Title</label>
+          <input type="text" id="title" placeholder="Example: Bus timing changed" required>
+
+          <label for="category">Category</label>
+          <select id="category" required>
+            <option value="">Select category</option>
+            <option value="Event">Event</option>
+            <option value="Announcement">Announcement</option>
+            <option value="Canteen">Canteen</option>
+            <option value="Transport">Transport</option>
+          </select>
+
+          <label for="date">Date</label>
+          <input type="date" id="date" required>
+
+          <label for="description">Description</label>
+          <textarea id="description" rows="4" placeholder="Write a short update..." required></textarea>
+
+          <button type="submit" id="submitBtn">Add Notice</button>
+          <button type="button" id="cancelBtn" class="secondary hidden">Cancel Edit</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="section-head">
+          <div>
+            <h2>Campus Notices</h2>
+            <p>Events, announcements, canteen, and transport updates.</p>
+          </div>
+          <select id="filter">
+            <option value="All">All</option>
+            <option value="Event">Event</option>
+            <option value="Announcement">Announcement</option>
+            <option value="Canteen">Canteen</option>
+            <option value="Transport">Transport</option>
+          </select>
+        </div>
+        <div id="noticeList" class="list"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="data/menu.js"></script>
+  <script src="data/bus.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

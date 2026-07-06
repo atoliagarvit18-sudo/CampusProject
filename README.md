@@ -1,8 +1,8 @@
-# CampusPulse Student Version
+# CampusPulse
 
-CampusPulse is a student-level full-stack web project for campus daily services. It keeps the original project idea: mess menu, bus timetable, crowd guidance, student feedback, and campus notices.
+CampusPulse is a full-stack web application that streamlines everyday campus services for students — including mess menus, bus schedules, crowd guidance, and campus notices — all in one place.
 
-This version removes the difficult interview parts like React/Next.js, AI, Gemini, OpenCV, YOLO, and heavy Python backend code. The project is rebuilt with simpler technologies that are easier to explain.
+The project uses a lightweight, easy-to-maintain tech stack, making it simple to run, extend, and explain end-to-end.
 
 ## Tech Stack
 
@@ -14,71 +14,63 @@ This version removes the difficult interview parts like React/Next.js, AI, Gemin
 - MongoDB
 - Mongoose
 
-## Main Features
+## Features
 
-- View full weekly mess menu
-- View bus timetable for each day
-- Select mess meal and get a simple crowd suggestion
-- Select bus timing and get a simple crowd suggestion
-- Submit student crowd feedback as Low, Medium, or High
-- Store crowd feedback in MongoDB
-- Add, edit, delete, and filter campus notices
-- Responsive frontend using plain HTML, CSS, and JavaScript
+- View the full weekly mess menu
+- View the bus timetable for each day
+- Get crowd-level suggestions for mess meals and bus timings
+- Submit crowd feedback (Low / Medium / High)
+- Store and retrieve feedback via MongoDB
+- Create, edit, delete, and filter campus notices
+- Fully responsive frontend built with plain HTML, CSS, and JavaScript
 
-## How Crowd Suggestion Works
+## How Crowd Suggestions Work
 
-This project does not use AI or camera-based detection.
+CampusPulse uses a rule-based system (no AI or camera-based detection) to estimate crowd levels:
 
-The backend uses simple logic:
+1. Checks the selected meal or bus timing
+2. Reads recent student feedback from MongoDB
+3. Combines timing logic with feedback data
+4. Returns a Low, Medium, or High crowd estimate with a short suggestion
 
-1. For mess, it checks the selected meal timing.
-2. For bus, it checks the selected bus time.
-3. It reads recent student feedback from MongoDB.
-4. It combines timing-based logic and student feedback.
-5. It returns Low, Medium, or High crowd with a short suggestion.
+This approach keeps the feature genuinely useful while remaining simple, transparent, and easy to walk through in a technical discussion.
 
-This keeps the project useful while staying easy to explain in interviews.
+## Getting Started
 
-## How to Run
-
-Install dependencies:
-
+**1. Install dependencies**
 ```bash
 npm install
 ```
 
-Create `.env` from `.env.example`.
+**2. Configure environment variables**
 
-Start MongoDB locally.
+Create a `.env` file based on `.env.example` and fill in your MongoDB connection details.
 
-Run the app:
+**3. Start MongoDB locally**
 
+**4. Run the application**
 ```bash
 npm start
 ```
 
-Open:
-
+**5. Open in your browser**
 ```text
 http://localhost:5000
 ```
 
-## Resume Title
+## Project Summary
 
-**CampusPulse - Campus Service and Crowd Guide**
+**CampusPulse — Campus Service and Crowd Guide**
 
-## Resume Description
+A full-stack campus service web application providing weekly mess menus, bus timetables, campus notices, student crowd feedback, and rule-based crowd suggestions for mess and bus services.
 
-Built a full-stack campus service web application using HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB. The app provides weekly mess menu, bus timetable, campus notices, student crowd feedback, and rule-based crowd suggestions for mess and bus services.
+### Key Contributions
 
-## Resume Bullet Points
+- Developed a student-focused campus service platform using HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB
+- Implemented weekly mess menu and bus timetable features using structured JavaScript data
+- Built REST APIs to store and retrieve student crowd feedback from MongoDB
+- Designed a rule-based crowd suggestion system using meal timing, bus timing, and recent feedback
+- Added full CRUD functionality for campus notices with category-based filtering
+- 
 
-- Developed a student-focused campus service guide using HTML, CSS, JavaScript, Node.js, Express.js, and MongoDB.
-- Added weekly mess menu and bus timetable features using structured JavaScript data.
-- Built REST APIs to store and fetch student crowd feedback from MongoDB.
-- Implemented simple rule-based crowd suggestions using meal time, bus timing, and recent feedback.
-- Added CRUD functionality for campus notices with category filtering.
 
-## Interview Explanation
-
-"CampusPulse is a campus service guide where students can check the mess menu, bus timetable, campus notices, and crowd status. Students can submit crowd feedback as Low, Medium, or High. The app does not use AI or camera detection. It uses simple timing rules and recent feedback from MongoDB to show a useful crowd suggestion. The frontend is built with HTML, CSS, and JavaScript, and the backend is built with Node.js, Express.js, and MongoDB."
